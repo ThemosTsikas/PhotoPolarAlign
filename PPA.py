@@ -849,14 +849,19 @@ class PhotoPolarAlign(Frame):
                 self.wifn.configure(bg='green', activebackground='green')
 
     def update_scale(self, hint):
-        if hint == 'v':
-            self.scale = scale_frm_wcs(self.vwcs_fn)
-        elif hint == 'h':
-            self.scale = scale_frm_wcs(self.hwcs_fn)
-        elif hint == 'i':
-            self.scale = scale_frm_wcs(self.iwcs_fn)
-        self.havescale = True
-        self.wvar5.configure(text=('%.2f' % self.scale))
+        try: 
+            if hint == 'v':
+                self.scale = scale_frm_wcs(self.vwcs_fn)
+            elif hint == 'h':
+                self.scale = scale_frm_wcs(self.hwcs_fn)
+            elif hint == 'i':
+                self.scale = scale_frm_wcs(self.iwcs_fn)
+            self.havescale = True
+            self.wvar5.configure(text=('%.2f' % self.scale))
+        except:
+            self.havescale = False
+            self.wvar5.configure(text='--.--')
+            return
 
     def solve(self, hint, solver):
         '''
