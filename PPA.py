@@ -453,6 +453,7 @@ def img2wcs(self, ankey, filename, wcsfn, hint):
         while True:
             stat = clnt.job_status(opt.job_id, justdict=True)
             # print 'Got job status:', stat
+            # TODO : stat may be None! should recover
             if stat.get('status', '') in ['success']:
                 success = (stat['status'] == 'success')
                 break
