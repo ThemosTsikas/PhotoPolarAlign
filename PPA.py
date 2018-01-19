@@ -257,7 +257,7 @@ def limg2wcs(self, filename, wcsfn, hint):
     import time
     t_start = time.time()
     if (('OSTYPE' in os.environ and os.environ['OSTYPE']=='linux') or
-        (os.uname()[0]=='Linux) or
+        (os.uname()[0]=='Linux') or
         ('OSTYPE' in os.environ and os.environ['OSTYPE']=='darwin') or
         ('OS'     in os.environ and os.environ['OS']    =='Windows_NT')):
         # Cygwin local or Linux local
